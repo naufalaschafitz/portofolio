@@ -34,7 +34,7 @@ export const metadata = {
     siteName: 'Naufal Aschafitz Portfolio',
     images: [
       {
-        url: '/og-image.jpeg', // Path ke gambar yang Anda siapkan di folder public
+        url: '/og-image.jpg', // Path ke gambar yang Anda siapkan di folder public
         width: 1200,
         height: 630,
       },
