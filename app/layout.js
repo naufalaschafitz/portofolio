@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://naufalaschafitz-portfolio.vercel.app'),
   // Judul utama yang muncul di tab browser dan hasil pencarian Google
   title: "Naufal Aschafitz | Data Analyst & Project Management Portfolio",
   
@@ -29,7 +30,7 @@ export const metadata = {
     title: "Naufal Aschafitz | Data Analyst & Project Management Portfolio",
     description: "Explore my projects in data analytics and project management.",
     // URL lengkap website Anda setelah di-deploy nanti
-    url: 'https://nama-domain-anda.com', // Ganti nanti setelah deploy
+    url: 'https://vercel.com/naufal-makarim-aschafitzs-projects', // Ganti nanti setelah deploy
     siteName: 'Naufal Aschafitz Portfolio',
     images: [
       {
