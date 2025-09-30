@@ -7,7 +7,7 @@ const certificationsData = [
     title: 'Google Data Analytics Specialization Certificate',
     issuer: 'Google Career Certificates',
     date: 'Issued Oct 2024',
-    logo: '/icons/Google.png', // Ganti dengan path logo yang benar
+    logo: '/icons/google.png', // Ganti dengan path logo yang benar
     url: 'https://www.coursera.org/account/accomplishments/specialization/R1LGZFWKICQ5', // Link ke kredensial
   },
   {

@@ -27,7 +27,7 @@ const volunteerData = [
     role: 'Staff of Sponsorship',
     company: 'Information Systems Expo 2022',
     duration: '2023',
-    icon: '/icons/ise.jpeg', // Ganti dengan path logo acara
+    icon: '/icons/ISE.jpeg', // Ganti dengan path logo acara
     description: [
         'Managed all operational aspects of the event, including logistics, scheduling, and on-site coordination.',
         'Led a team of staff to ensure the smooth execution of the event for all participants.',
