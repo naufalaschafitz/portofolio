@@ -1,0 +1,52 @@
+/* app/globals.css */
+
+@import "tailwindcss";
+
+/*
+  Ini adalah layer dasar tempat kita mendefinisikan variabel.
+  Layer ini akan dieksekusi oleh Tailwind.
+*/
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  :root {
+    /* Warna untuk Light Mode (Mode Terang) */
+    --background: 255 255 255; /* Putih */
+    --foreground: 23 23 23;   /* Abu-abu sangat gelap (gray-900) */
+  }
+
+  .dark {
+    /* Warna untuk Dark Mode (Mode Gelap) */
+    --background: 17 24 39;   /* Abu-abu arang (gray-900) */
+    --foreground: 209 213 219; /* Abu-abu terang (gray-300) */
+  }
+
+  /* Bagian ini memastikan font Geist Anda berfungsi dengan baik 
+    dan tidak tertimpa oleh style default browser.
+  */
+  body {
+    background-color: #030712; /* Warna dasar jika gradien tidak didukung */
+    background-image: linear-gradient(to bottom, #030712, #111827); /* Gradien dari atas ke bawah */
+    background-attachment: fixed; /* (Opsional) Membuat gradien tetap di tempat saat halaman di-scroll */
+    color: rgb(var(--foreground));
+    font-family: var(--font-geist-sans); /* Menggunakan font Geist */
+  }
+}
+
+/* Optional: Scrollbar styling untuk dark theme yang lebih bagus */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1f2937; /* bg-gray-800 */
+}
+::-webkit-scrollbar-thumb {
+  background: #4b5563; /* bg-gray-600 */
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280; /* bg-gray-500 */
+}
