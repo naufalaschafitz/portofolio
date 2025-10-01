@@ -8,9 +8,10 @@ const internshipData = [
     duration: 'Feb 2025',
     icon: '/icons/OJK.png', // Ganti dengan path logo perusahaan
     description: [
-      'Collected and cleaned data from various sources, improving data quality by 20%.',
-      'Created interactive dashboards in Power BI to track key business metrics.',
-      'Assisted the senior data team in generating weekly performance reports.',
+      'Analyzed training selection data across 50+ programs for 4,000+ employees to support organizational upskilling initiatives.',
+      'Visualized feedback from 100+ interns to deliver key insights for future program enhancements.',
+      'Built and managed a database of 13 certification institutions, tracking nearly two decades of partnership history.',
+      'Delivered strategic HR recommendations based on benchmarking research of 5 peer organizations across Asia.',
     ],
   },
   // Tambahkan pengalaman magang lainnya di sini
@@ -40,15 +41,18 @@ const InternshipSection = () => {
               </div>
 
               {/* Detail Pengalaman */}
-              <div>
+              <div className='sm:pr-6'>
                 <h3 className="text-2xl font-bold text-gray-100">{exp.role}</h3>
                 <p className="text-lg font-medium text-gray-300 mt-1">{exp.company}</p>
                 <p className="text-sky-400 text-sm mt-1">{exp.duration}</p>
                 
                 {/* Deskripsi (Bullet Points) */}
-                <ul className="list-disc list-inside mt-4 space-y-2 text-gray-400">
+                <ul className="mt-4 space-y-2 text-gray-400">
                   {exp.description.map((desc, i) => (
-                    <li key={i}>{desc}</li>
+                    <li key={i} className="flex gap-x-3">
+                      <span className="flex-shrink-0">•</span>
+                      <span className="text-justify">{desc}</span>
+                    </li>
                   ))}
                 </ul>
               </div>

@@ -1,4 +1,7 @@
+// components/EducationSection.js
+
 import Image from 'next/image';
+import { FaStar } from 'react-icons/fa';
 
 const educationData = [
   {
@@ -7,16 +10,24 @@ const educationData = [
     department: 'Sistem Informasi',
     institution: 'Institut Teknologi Sepuluh Nopember',
     icon: '/icons/its.png',
-    description: 'Focused on data analytics, project management, and system design. Actively involved in the student executive board as Head of the IT Division.',
+    gpa: '3.73 / 4.00',
+    // --- DESCRIPTION DIUBAH MENJADI ARRAY DI SINI ---
+    description: [
+      'Graduated with Cum Laude honors.',
+      'Developed a research focus in data engineering and business intelligence.',
+      'Actively involved in organizational management, serving as Head of the IT Division.',
+      'Completed specialized trainings in leadership, entrepreneurship, and internationalization.',
+    ],
   },
   {
     year: '2019 - 2021',
     degree: 'Science',
+    department: null,
     institution: 'SMA Islam Al-Azhar 4',
     icon: '/icons/alazhar.png',
-    description: 'Graduated with honors, participated in national physics olympiads and was the captain of the basketball team.',
+    // Deskripsi SMA tetap string karena lebih pendek
+    description: 'Maintained a strong academic track record and graduated with honors. Participated in national-level competitions, including a scientific writing competition and physics olympiads.',
   },
-  // Tambahkan riwayat pendidikan lainnya di sini
 ];
 
 const EducationSection = () => {
@@ -33,31 +44,39 @@ const EducationSection = () => {
           {educationData.map((edu, index) => (
             <div key={index} className="mb-8 flex justify-between items-center w-full">
               <div className="hidden sm:block w-5/12"></div>
-              
-              <div className="z-10 flex items-center bg-sky-500 shadow-xl w-8 h-8 rounded-full">
-                <div className="mx-auto text-white font-semibold text-lg"></div>
-              </div>
-
-              {/* 3. Modifikasi kartu konten untuk menampilkan logo */}
+              <div className="z-10 flex items-center bg-sky-500 shadow-xl w-8 h-8 rounded-full"></div>
               <div className="bg-gray-800 rounded-lg shadow-lg w-full sm:w-5/12 p-6">
                 <p className="text-sky-400 font-semibold text-sm mb-2">{edu.year}</p>
                 <div className="flex items-center gap-3 mb-3">
-                  <Image
-                    src={edu.icon}
-                    alt={`${edu.institution} logo`}
-                    width={45} // Atur ukuran logo
-                    height={45}
-                    className="rounded-full object-contain" // rounded-full jika logonya lingkaran
-                  />
+                  <Image src={edu.icon} alt={`${edu.institution} logo`} width={45} height={45} className="rounded-full object-contain" />
                   <div>
                     <h3 className="text-xl font-bold text-gray-100">{edu.institution}</h3>
                     <p className="text-md font-medium text-gray-300">
                       {edu.degree}
-                      {edu.department && ` - ${edu.department}`} {/* Tampilkan jurusan jika ada */}
+                      {edu.department && ` - ${edu.department}`}
                     </p>
                   </div>
                 </div>
-                <p className="text-gray-400 text-sm">{edu.description}</p>
+                {edu.gpa && (
+                  <p className="text-sm font-semibold text-gray-100 mb-3 flex items-center gap-2">
+                    <FaStar className="text-yellow-400" />
+                    <span>GPA: {edu.gpa}</span>
+                  </p>
+                )}
+
+                {/* --- LOGIKA RENDERING DESKRIPSI DIPERBARUI --- */}
+                {Array.isArray(edu.description) ? (
+                  <ul className="space-y-2 text-gray-400 text-sm">
+                    {edu.description.map((desc, i) => (
+                      <li key={i} className="flex gap-x-3">
+                        <span className="flex-shrink-0">•</span>
+                        <span className="text-justify">{desc}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-gray-400 text-sm text-justify">{edu.description}</p>
+                )}
               </div>
             </div>
           ))}
