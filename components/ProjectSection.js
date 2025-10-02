@@ -7,7 +7,7 @@ const projectsData = [
   {
     id: 1,
     title: 'Data Analysis Dashboard',
-    category: 'Data Analytics',
+    category: ['Data Analytics',],
     image: '/projects/Proyek1_1.png',
     tools: ['Power BI', 'Excel'],
     description:
@@ -18,6 +18,24 @@ const projectsData = [
       '/projects/Proyek1_3.png',
       '/projects/Proyek1_4.png',
       '/projects/Proyek1_5.png',
+    ],
+  },
+    {
+    id: 2,
+    title: 'End-to-End UAV Route Optimization for Precision Agriculture',
+    category: ['Route Optimization','Soft Computing','Data Clustering & Spatial Analysis'],
+    image: '/projects/Proyek2_1.png',
+    tools: ['Python', 'Google Colab', 'Desmos', 'Metaheuristic ALgorithms (SA, ACO)', 'Google OR-Tools', 'LLoyd Algorithm'],
+    description:
+      'This capstone project showcases the development of an intelligent routing system for agricultural drones (UAVs). I implemented a Hybrid Simulated Annealing (SA) algorithm to find efficient distribution paths, a process that began with raw spatial data processing and clustering using K-Means with grid search. To ensure robustness, the algorithm\'s performance was rigorously benchmarked against industry-standard solutions like Google OR-Tools and another metaheuristic, the Hybrid Ant Colony Optimization (MMAS). The initial data clustering phase successfully achieved 97.28% area coverage, and the final Hybrid SA model produced a shortest route of 1425.22 meters, performing within just 0.02% of the Google OR-Tools benchmark. This demonstrates a comprehensive, end-to-end approach to delivering a validated, high-performance optimization solution.',
+    galleryImages: [
+      '/projects/Proyek2_2.png', 
+      '/projects/Proyek2_3.png',
+      '/projects/Proyek2_4.png',
+      '/projects/Proyek2_5.png',
+      '/projects/Proyek2_6.png',
+      '/projects/Proyek2_7.png',
+      '/projects/Proyek2_8.png',
     ],
   },
   // ... (proyek Anda yang lain)

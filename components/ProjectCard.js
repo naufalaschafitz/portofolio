@@ -1,4 +1,9 @@
 import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const ProjectCard = ({ project, isExpanded, onToggle }) => {
   return (
@@ -16,9 +21,13 @@ const ProjectCard = ({ project, isExpanded, onToggle }) => {
             />
           </div>
           <div className="flex flex-col">
-            <span className="bg-sky-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full self-start">
-              {project.category}
-            </span>
+            <div className="flex flex-wrap gap-2">
+              {project.category.map((cat) => (
+                <span key={cat} className="bg-sky-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full self-start">
+                  {cat}
+                </span>
+              ))}
+            </div>    
             <h3 className="text-2xl font-bold text-gray-100 mt-3">
               {project.title}
             </h3>
@@ -53,17 +62,36 @@ const ProjectCard = ({ project, isExpanded, onToggle }) => {
           <h4 className="text-xl font-semibold text-gray-100 mb-4">
             Gallery
           </h4>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {project.galleryImages.map((imgSrc, index) => (
-              <Image
-                key={index}
-                src={imgSrc}
-                alt={`Project gallery image ${index + 1}`}
-                width={500}
-                height={300}
-                className="rounded-md object-cover"
-              />
-            ))}
+          <div className="relative px-12 max-w-2xl mx-auto"> 
+            <Swiper
+              modules={[Navigation, Pagination]}
+              spaceBetween={20}
+              slidesPerView={1}
+              navigation={{
+                nextEl: `.swiper-button-next-${project.id}`, // Custom class untuk tombol next
+                prevEl: `.swiper-button-prev-${project.id}`, // Custom class untuk tombol prev
+              }}
+              pagination={{ clickable: true }}
+              loop={true}
+              className="rounded-lg"
+            >
+              {project.galleryImages.map((imgSrc, index) => (
+                <SwiperSlide key={index} className="flex items-center justify-center">
+                  {/* 2. Ubah cara render Image agar rasio bebas */}
+                  <Image
+                    src={imgSrc}
+                    alt={`Project gallery image ${index + 1}`}
+                    width={1280}  // Angka ini untuk menentukan rasio, bukan ukuran tetap
+                    height={720} // Angka ini untuk menentukan rasio, bukan ukuran tetap
+                    className="w-full h-auto object-contain" // object-contain agar tidak terpotong
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            
+            {/* Tombol Navigasi Kustom di Luar */}
+            <div className={`swiper-button-prev swiper-button-prev-${project.id}`}></div>
+            <div className={`swiper-button-next swiper-button-next-${project.id}`}></div>
           </div>
         </div>
       </div>

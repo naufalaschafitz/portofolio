@@ -26,7 +26,7 @@ const educationData = [
     institution: 'SMA Islam Al-Azhar 4',
     icon: '/icons/alazhar.png',
     // Deskripsi SMA tetap string karena lebih pendek
-    description: 'Maintained a strong academic track record and graduated with honors. Participated in national-level competitions, including a scientific writing competition and physics olympiads.',
+    description: 'Maintained a strong academic track record and graduated with honors. Participated in a national-level scientific writing competition.',
   },
 ];
 
